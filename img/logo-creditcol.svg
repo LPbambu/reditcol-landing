@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220" width="400" height="220">
+  <!-- Symbol / Icon -->
+  <!-- Left chevron group (red) -->
+  <polygon points="30,170 75,50 100,50 55,170" fill="#E5001B"/>
+  <polygon points="70,170 115,50 140,50 95,170" fill="#162265" opacity="0.85"/>
+  <polygon points="110,170 155,50 180,50 135,170" fill="#E5001B"/>
+  
+  <!-- Middle divider navy -->
+  <polygon points="155,170 200,50 220,50 175,170" fill="#162265"/>
+
+  <!-- Right E-shape (red bars) -->
+  <rect x="230" y="50" width="120" height="30" fill="#E5001B" rx="2"/>
+  <rect x="230" y="95" width="90" height="28" fill="#162265" rx="2"/>
+  <rect x="230" y="143" width="120" height="30" fill="#E5001B" rx="2"/>
+
+  <!-- Text: CREDIT (navy) -->
+  <text x="10" y="215" font-family="Arial Black, sans-serif" font-weight="900" font-size="52" fill="#162265" letter-spacing="2">CREDIT</text>
+  <!-- Text: COL (red) -->
+  <text x="235" y="215" font-family="Arial Black, sans-serif" font-weight="900" font-size="52" fill="#E5001B" letter-spacing="2">COL</text>
+</svg>

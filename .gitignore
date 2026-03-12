@@ -1,0 +1,32 @@
+# CREDITCOL Landing Page
+# .gitignore — Antigravity v2.1
+
+# Variables de entorno (NUNCA al repositorio)
+.env
+.env.local
+.env.production
+
+# Config generado por Docker (se genera en runtime)
+js/config.js
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/
+
+# Node (por si se agrega en el futuro)
+node_modules/
+npm-debug.log*
+
+# Docker
+.dockerignore
