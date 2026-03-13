@@ -120,13 +120,13 @@ input, select, textarea { outline: none; font-family: var(--font-main); }
   background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid transparent;
-  padding: 14px 0;
+  padding: 4px 0;
   transition: var(--transition);
 }
 .header.scrolled {
   border-bottom-color: var(--border);
   box-shadow: 0 2px 16px rgba(0,0,0,0.07);
-  padding: 10px 0;
+  padding: 2px 0;
 }
 
 .header-inner {
@@ -166,7 +166,7 @@ input, select, textarea { outline: none; font-family: var(--font-main); }
    ========================================= */
 .hero {
   position: relative;
-  padding: 165px 0 90px;
+  padding: 140px 0 90px;
   overflow: hidden;
   background: linear-gradient(150deg, #DBEAFE 0%, #EFF6FF 30%, #FFFFFF 65%);
   /* El patrón de puntos del body se hereda, lo enriquecemos con blobs */
