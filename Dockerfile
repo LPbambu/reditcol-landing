@@ -28,9 +28,8 @@ RUN chmod +x /entrypoint.sh
 # Puerto de exposición
 EXPOSE 80
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
-  CMD wget --quiet --tries=1 --spider http://localhost/health || exit 1
+# Health check desactivado (Traefik gestiona la disponibilidad)
+HEALTHCHECK NONE
 
 # Punto de entrada
 ENTRYPOINT ["/entrypoint.sh"]
