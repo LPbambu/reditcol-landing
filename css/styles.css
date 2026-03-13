@@ -166,7 +166,7 @@ input, select, textarea { outline: none; font-family: var(--font-main); }
    ========================================= */
 .hero {
   position: relative;
-  padding: 130px 0 90px;
+  padding: 165px 0 90px;
   overflow: hidden;
   background: linear-gradient(150deg, #DBEAFE 0%, #EFF6FF 30%, #FFFFFF 65%);
   /* El patrón de puntos del body se hereda, lo enriquecemos con blobs */
