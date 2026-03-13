@@ -6,8 +6,7 @@
 .env.local
 .env.production
 
-# Config generado por Docker (se genera en runtime)
-js/config.js
+# Config de producción (incluido en el repositorio)
 
 # Sistema operativo
 .DS_Store

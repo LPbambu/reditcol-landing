@@ -1,13 +1,9 @@
 # =======================================
-# CREDITCOL — Dockerfile
-# Sistema: Antigravity | v2.1
-# Base: nginx:alpine (ultra lightweight)
+# CREDITCOL — Dockerfile (simplificado)
+# Base: nginx:alpine
 # =======================================
 
 FROM nginx:1.27-alpine
-
-# Instalar gettext para envsubst
-RUN apk add --no-cache gettext
 
 # Remover configuración nginx por defecto
 RUN rm /etc/nginx/conf.d/default.conf
@@ -21,15 +17,8 @@ COPY gracias.html /usr/share/nginx/html/gracias.html
 COPY css/ /usr/share/nginx/html/css/
 COPY js/ /usr/share/nginx/html/js/
 
-# Copiar y configurar entrypoint
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-
 # Puerto de exposición
 EXPOSE 80
 
-# Health check desactivado (Traefik gestiona la disponibilidad)
-HEALTHCHECK NONE
-
-# Punto de entrada
-ENTRYPOINT ["/entrypoint.sh"]
+# Iniciar nginx directamente
+CMD ["nginx", "-g", "daemon off;"]
