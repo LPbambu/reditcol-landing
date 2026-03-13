@@ -1,0 +1,4 @@
+2284160 feat: logo enteramente blanco y sin texto creditcol, seccion cta y header oscuros para contraste
+55a697b feat: usar logo-mc.png como favicon del navegador
+2b821ca style: aumentar al triple el tama+¦o del logo en seccion de cta final
+1d2c6eb style: aumentar logo un 10% adicional (pc: 101px, movil: 76px)

@@ -149,12 +149,13 @@ document.addEventListener('DOMContentLoaded', () => {
   /* =============================================
      9. FORMULARIO — validación + envío a Supabase
      ============================================= */
-  const form = document.getElementById('leadForm');
-  if (form) {
-    const btnSubmit   = form.querySelector('#btnSubmit');
-    const btnText     = form.querySelector('.btn-text');
-    const spinner     = form.querySelector('.spinner');
-    const formAlert   = document.getElementById('formAlert');
+  const forms = document.querySelectorAll('form');
+  
+  forms.forEach(form => {
+    // Both forms use same structure, IDs are unfortunately duplicated in HTML, 
+    // so we use querySelector within the form context.
+    const btnSubmit   = form.querySelector('button[type="submit"]');
+    const formAlert   = form.previousElementSibling; // The div id="formAlert" is visually right before the form
 
     // Validación individual de campo
     function validateField(field) {
@@ -165,12 +166,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (field.required && !field.value.trim()) {
         valid = false; msg = 'Este campo es obligatorio.';
-      } else if (field.id === 'telefono') {
+      } else if (field.name === 'telefono' || field.id === 'telefono') {
         const digits = field.value.replace(/\D/g, '');
         if (digits.length < 10 || digits.length > 12) {
           valid = false; msg = 'Ingresa un número válido (10 dígitos).';
         }
-      } else if (field.id === 'nombre') {
+      } else if (field.name === 'nombre' || field.id === 'nombre') {
         if (field.value.trim().length < 3) {
           valid = false; msg = 'El nombre debe tener al menos 3 caracteres.';
         }
@@ -206,7 +207,9 @@ document.addEventListener('DOMContentLoaded', () => {
       fields.forEach(f => { if (!validateField(f)) allValid = false; });
 
       const reportado = getRadioValue('reportado_datacredito');
-      const radioError = document.getElementById('radioError');
+      const radioGroup = form.querySelector('.radio-group');
+      const radioError = radioGroup ? radioGroup.nextElementSibling : null;
+      
       if (reportado === null) {
         if (radioError) { radioError.textContent = 'Selecciona una opción.'; radioError.classList.add('show'); }
         allValid = false;
@@ -222,10 +225,9 @@ document.addEventListener('DOMContentLoaded', () => {
       if (formAlert) { formAlert.className = 'form-alert'; formAlert.textContent = ''; }
 
       const leadData = {
-        nombre: document.getElementById('nombre').value.trim(),
-        telefono: document.getElementById('telefono').value.replace(/\D/g, ''),
-        tipo_cliente: document.getElementById('tipo_cliente').value,
-        ingreso_aproximado: null,
+        nombre: form.querySelector('[name="nombre"]').value.trim(),
+        telefono: form.querySelector('[name="telefono"]').value.replace(/\D/g, ''),
+        tipo_cliente: form.querySelector('[name="tipo_cliente"]').value,
         reportado_datacredito: reportado === 'si',
         fuente: getUTMSource(),
         estado: 'nuevo',
@@ -261,25 +263,24 @@ document.addEventListener('DOMContentLoaded', () => {
       } catch (err) {
         console.error('[CreditCol] Error al guardar lead:', err);
         if (formAlert) {
-          formAlert.textContent = 'Ocurrió un error. Por favor inténtalo nuevamente.';
+          formAlert.textContent = 'Ocurrió un error. ' + (err.message || 'Por favor inténtalo nuevamente.');
           formAlert.className = 'form-alert error-alert';
         }
         btnSubmit.disabled = false;
         btnSubmit.classList.remove('loading');
       }
     });
-  }
+  });
 
   /* =============================================
      10. PHONE INPUT — auto-format
      ============================================= */
-  const phoneInput = document.getElementById('telefono');
-  if (phoneInput) {
+  document.querySelectorAll('input[name="telefono"]').forEach(phoneInput => {
     phoneInput.addEventListener('input', (e) => {
       let value = e.target.value.replace(/\D/g, '');
       if (value.length > 12) value = value.slice(0, 12);
       e.target.value = value;
     });
-  }
+  });
 
 });
