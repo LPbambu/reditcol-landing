@@ -137,7 +137,7 @@ input, select, textarea { outline: none; font-family: var(--font-main); }
 
 .logo { display: flex; align-items: center; }
 .logo-img-header {
-  height: 92px;
+  height: 101px;
   width: auto;
 }
 .footer-logo-img {
@@ -166,7 +166,7 @@ input, select, textarea { outline: none; font-family: var(--font-main); }
    ========================================= */
 .hero {
   position: relative;
-  padding: 125px 0 90px;
+  padding: 130px 0 90px;
   overflow: hidden;
   background: linear-gradient(150deg, #DBEAFE 0%, #EFF6FF 30%, #FFFFFF 65%);
   /* El patrón de puntos del body se hereda, lo enriquecemos con blobs */
@@ -1264,8 +1264,8 @@ select.form-control option { background: #fff; color: var(--text-primary); }
 }
 @media (max-width: 768px) {
   .header-cta { display: none; }
-  .hero { padding: 100px 0 60px; }
-  .logo-img-header { height: 69px; }
+  .hero { padding: 110px 0 60px; }
+  .logo-img-header { height: 76px; }
   .hero-title { font-size: 2.2rem; }
   .hero-buttons { flex-direction: column; }
   .btn-primary, .btn-whatsapp { width: 100%; justify-content: center; }
