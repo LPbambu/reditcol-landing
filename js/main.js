@@ -50,9 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
      3. WHATSAPP — número dinámico
      ============================================= */
   function getWhatsappUrl(message) {
-    const number = (typeof CONFIG !== 'undefined' && !CONFIG.WHATSAPP_NUMBER.includes('${'))
-      ? CONFIG.WHATSAPP_NUMBER
-      : '573001234567'; // fallback local
+    const number = '573044387185';
     const encoded = encodeURIComponent(message || 'Hola, me interesa solicitar un crédito en Creditcol.');
     return `https://wa.me/${number}?text=${encoded}`;
   }

@@ -80,8 +80,7 @@
 
       // Inyectar URLs WhatsApp
       function getWhatsappUrl(msg) {
-        const number = (typeof CONFIG !== 'undefined' && !CONFIG.WHATSAPP_NUMBER.includes('${'))
-          ? CONFIG.WHATSAPP_NUMBER : '573001234567';
+        const number = '573044387185';
         return `https://wa.me/${number}?text=${encodeURIComponent(msg)}`;
       }
 
