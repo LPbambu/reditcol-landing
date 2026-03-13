@@ -135,11 +135,45 @@ input, select, textarea { outline: none; font-family: var(--font-main); }
   justify-content: space-between;
 }
 
-.logo { display: flex; align-items: center; }
-/* Logo sobre fondo blanco — colores originales visibles sin filtros */
-.logo-img-header {
-  height: 60px;
-  width: auto;
+/* Logo MC — monograma de texto, sin dependencia de imagen */
+.logo-mc {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+}
+.logo-mc-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--color-cta);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 900;
+  border-radius: 10px;
+  letter-spacing: -1px;
+  flex-shrink: 0;
+}
+.logo-mc-name {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--color-primary-dark);
+  letter-spacing: -0.5px;
+}
+/* Versión grande para la sección CTA final */
+.logo-mc--large .logo-mc-badge {
+  width: 52px;
+  height: 52px;
+  font-size: 1.35rem;
+  border-radius: 13px;
+}
+.logo-mc--large .logo-mc-name {
+  font-size: 1.65rem;
 }
 
 /* CTA Header — rojo profesional */
