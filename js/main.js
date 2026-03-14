@@ -194,8 +194,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Validar radio groups (reportado)
-    function getRadioValue(name) {
-      return form.querySelector(`input[name="${name}"]:checked`)?.value ?? null;
+    function getRadioValue() {
+      return form.querySelector('input[type="radio"]:checked')?.value ?? null;
     }
 
     form.addEventListener('submit', async (e) => {
@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
       let allValid = true;
       fields.forEach(f => { if (!validateField(f)) allValid = false; });
 
-      const reportado = getRadioValue('reportado_datacredito');
+      const reportado = getRadioValue();
       const radioGroup = form.querySelector('.radio-group');
       const radioError = radioGroup ? radioGroup.nextElementSibling : null;
       

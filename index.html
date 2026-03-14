@@ -505,7 +505,7 @@
   <!-- ============================================================
        SECCIÓN 6 — FORMULARIO DE SOLICITUD
        ============================================================ -->
-  <section class="formulario-section" id="formulario">
+  <section class="formulario-section" id="formulario2">
     <div class="container">
       <div class="formulario-inner">
 
@@ -545,31 +545,31 @@
           <h3 class="form-title">Solicita tu evaluación gratuita</h3>
           <p class="form-sub">Completa los datos. Es gratis y sin compromiso.</p>
 
-          <div id="formAlert" class="form-alert"></div>
+          <div id="formAlert2" class="form-alert"></div>
 
-          <form id="leadForm" novalidate autocomplete="off">
+          <form id="leadForm2" novalidate autocomplete="off">
 
             <!-- Nombre -->
             <div class="form-group">
-              <label class="form-label" for="nombre">Nombre completo *</label>
+              <label class="form-label" for="nombre2">Nombre completo *</label>
               <input
                 type="text"
-                id="nombre"
+                id="nombre2"
                 name="nombre"
                 class="form-control"
                 placeholder="Ej: María Rodríguez"
                 required
                 autocomplete="name"
               />
-              <span class="form-error" id="nombreError"></span>
+              <span class="form-error" id="nombreError2"></span>
             </div>
 
             <!-- Teléfono -->
             <div class="form-group">
-              <label class="form-label" for="telefono">Número de celular *</label>
+              <label class="form-label" for="telefono2">Número de celular *</label>
               <input
                 type="tel"
-                id="telefono"
+                id="telefono2"
                 name="telefono"
                 class="form-control"
                 placeholder="Ej: 3001234567"
@@ -578,20 +578,20 @@
                 autocomplete="tel"
                 inputmode="numeric"
               />
-              <span class="form-error" id="telefonoError"></span>
+              <span class="form-error" id="telefonoError2"></span>
             </div>
 
             <!-- Tipo de cliente -->
             <div class="form-group">
-              <label class="form-label" for="tipo_cliente">¿Qué tipo de cliente eres? *</label>
+              <label class="form-label" for="tipo_cliente2">¿Qué tipo de cliente eres? *</label>
               <div class="form-select-wrapper">
-                <select id="tipo_cliente" name="tipo_cliente" class="form-control" required>
+                <select id="tipo_cliente2" name="tipo_cliente" class="form-control" required>
                   <option value="" disabled selected>Selecciona una opción</option>
                   <option value="pensionado">Soy pensionado</option>
                   <option value="empleado_publico">Soy empleado público</option>
                 </select>
               </div>
-              <span class="form-error" id="tipoClienteError"></span>
+              <span class="form-error" id="tipoClienteError2"></span>
             </div>
 
             <!-- ¿Reportado? -->
@@ -599,18 +599,18 @@
               <label class="form-label">¿Estás reportado en Datacrédito? *</label>
               <div class="radio-group">
                 <div class="radio-option">
-                  <input type="radio" id="reportadoSi" name="reportado_datacredito" value="si" />
-                  <label class="radio-label" for="reportadoSi">😕 Sí, estoy reportado</label>
+                  <input type="radio" id="reportadoSi2" name="reportado_datacredito2" value="si" />
+                  <label class="radio-label" for="reportadoSi2">😕 Sí, estoy reportado</label>
                 </div>
                 <div class="radio-option">
-                  <input type="radio" id="reportadoNo" name="reportado_datacredito" value="no" />
-                  <label class="radio-label" for="reportadoNo">✅ No estoy reportado</label>
+                  <input type="radio" id="reportadoNo2" name="reportado_datacredito2" value="no" />
+                  <label class="radio-label" for="reportadoNo2">✅ No estoy reportado</label>
                 </div>
               </div>
-              <span class="form-error" id="radioError"></span>
+              <span class="form-error" id="radioError2"></span>
             </div>
 
-            <button type="submit" class="btn-submit" id="btnSubmit">
+            <button type="submit" class="btn-submit" id="btnSubmit2">
               <span class="btn-text">🚀 Solicitar evaluación gratuita</span>
               <span class="spinner"></span>
             </button>

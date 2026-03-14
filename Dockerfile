@@ -18,8 +18,10 @@ COPY css/ /usr/share/nginx/html/css/
 COPY js/ /usr/share/nginx/html/js/
 COPY img/ /usr/share/nginx/html/img/
 
-# Puerto de exposición
-EXPOSE 80
+# Script de entrada para inyectar variables de entorno
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
-# Iniciar nginx directamente
-CMD ["nginx", "-g", "daemon off;"]
+# Exponer puerto y establecer entrypoint
+EXPOSE 80
+ENTRYPOINT ["/entrypoint.sh"]
