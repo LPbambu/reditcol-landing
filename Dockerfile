@@ -20,7 +20,8 @@ COPY img/ /usr/share/nginx/html/img/
 
 # Script de entrada para inyectar variables de entorno
 COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+RUN sed -i 's/\r$//' /entrypoint.sh && \
+    chmod +x /entrypoint.sh
 
 # Exponer puerto y establecer entrypoint
 EXPOSE 80
