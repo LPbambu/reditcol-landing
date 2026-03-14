@@ -146,7 +146,7 @@ input, select, textarea { outline: none; font-family: var(--font-main); }
 
 .logo { display: flex; align-items: center; }
 .logo-img-header {
-  height: 101px;
+  height: 145px;
   width: auto;
 }
 .footer-logo-img {
