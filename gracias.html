@@ -106,11 +106,18 @@ src="https://www.facebook.com/tr?id=1593579461947002&ev=PageView&noscript=1"/>
       document.querySelectorAll('[data-whatsapp]').forEach(el => {
         const msg = el.getAttribute('data-whatsapp-msg') || 'Hola, quiero información sobre créditos en Creditcol.';
         el.href = getWhatsappUrl(msg);
+        
+        // Evento para Meta Pixel: Contact (WhatsApp)
+        el.addEventListener('click', () => {
+          if (typeof fbq === 'function') { 
+            fbq('track', 'Contact'); 
+          }
+        });
       });
 
-      // Meta Pixel — CompleteRegistration
-      if (typeof CONFIG !== 'undefined' && CONFIG.META_PIXEL_ID && !CONFIG.META_PIXEL_ID.includes('${')) {
-        if (typeof fbq === 'function') { fbq('track', 'CompleteRegistration'); }
+      // Meta Pixel — Lead (Confirmación real de envío exitoso)
+      if (typeof fbq === 'function') { 
+        fbq('track', 'Lead'); 
       }
 
       // Limpiar sessionStorage

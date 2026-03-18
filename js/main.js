@@ -45,6 +45,13 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('[data-whatsapp]').forEach(el => {
     const msg = el.getAttribute('data-whatsapp-msg') || 'Hola, me interesa solicitar un crédito en Creditcol.';
     el.href = getWhatsappUrl(msg);
+    
+    // Evento para Meta Pixel: Contact
+    el.addEventListener('click', () => {
+      if (typeof fbq === 'function') { 
+        fbq('track', 'Contact'); 
+      }
+    });
   });
 
   /* =============================================
@@ -235,9 +242,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (success) {
-          // Meta Pixel — Lead event
-          if (typeof fbq === 'function') { fbq('track', 'Lead'); }
-
           // Guardar nombre en sessionStorage para página de gracias
           sessionStorage.setItem('cc_nombre', leadData.nombre);
           sessionStorage.setItem('cc_telefono', leadData.telefono);
