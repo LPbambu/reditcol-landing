@@ -253,7 +253,8 @@ document.addEventListener('DOMContentLoaded', () => {
       } catch (err) {
         console.error('[CreditCol] Error al guardar lead:', err);
         if (formAlert) {
-          formAlert.textContent = 'Ocurrió un error. ' + (err.message || 'Por favor inténtalo nuevamente.');
+          const errMsg = err.message || err.error_description || (typeof err === 'string' ? err : 'Por favor inténtalo nuevamente.');
+          formAlert.textContent = 'Ocurrió un error. ' + errMsg;
           formAlert.className = 'form-alert error-alert';
         }
         btnSubmit.disabled = false;
