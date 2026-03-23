@@ -439,6 +439,14 @@ src="https://www.facebook.com/tr?id=1593579461947002&ev=PageView&noscript=1"/>
                 </select>
               </div>
               <span class="form-error" id="tipoClienteError"></span>
+              <!-- Aviso empleado privado -->
+              <div class="aviso-privado" id="avisoPrivado1" role="alert" aria-live="polite">
+                <div class="aviso-privado-icon">🚫</div>
+                <div class="aviso-privado-body">
+                  <strong>Por el momento no trabajamos con empleados privados</strong>
+                  <p>Nuestros créditos por libranza están disponibles <strong>solo para empleados públicos y pensionados</strong>. Si conoces a alguien que aplique, ¡compártenos!</p>
+                </div>
+              </div>
             </div>
 
             <!-- ¿Reportado? -->
@@ -613,6 +621,14 @@ src="https://www.facebook.com/tr?id=1593579461947002&ev=PageView&noscript=1"/>
                 </select>
               </div>
               <span class="form-error" id="tipoClienteError2"></span>
+              <!-- Aviso empleado privado -->
+              <div class="aviso-privado" id="avisoPrivado2" role="alert" aria-live="polite">
+                <div class="aviso-privado-icon">🚫</div>
+                <div class="aviso-privado-body">
+                  <strong>Por el momento no trabajamos con empleados privados</strong>
+                  <p>Nuestros créditos por libranza están disponibles <strong>solo para empleados públicos y pensionados</strong>. Si conoces a alguien que aplique, ¡compártenos!</p>
+                </div>
+              </div>
             </div>
 
             <!-- ¿Reportado? -->
@@ -851,6 +867,29 @@ src="https://www.facebook.com/tr?id=1593579461947002&ev=PageView&noscript=1"/>
         }
       });
     });
+  </script>
+
+  <!-- Aviso empleado privado -->
+  <script>
+    (function () {
+      function setupAvisoPrivado(selectId, avisoId, submitId) {
+        const select = document.getElementById(selectId);
+        const aviso = document.getElementById(avisoId);
+        const btn   = document.getElementById(submitId);
+        if (!select || !aviso || !btn) return;
+
+        select.addEventListener('change', function () {
+          const esPrivado = this.value === 'empleado_privado';
+          aviso.classList.toggle('visible', esPrivado);
+          btn.disabled = esPrivado;
+          btn.style.opacity = esPrivado ? '0.5' : '';
+          btn.style.cursor  = esPrivado ? 'not-allowed' : '';
+        });
+      }
+
+      setupAvisoPrivado('tipo_cliente',  'avisoPrivado1', 'btnSubmit');
+      setupAvisoPrivado('tipo_cliente2', 'avisoPrivado2', 'btnSubmit2');
+    })();
   </script>
 
   <!-- App logic -->
