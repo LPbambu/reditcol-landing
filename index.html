@@ -15,8 +15,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="img/favicon-square.png" />
-
+  <link rel="icon" type="image/png" sizes="48x48" href="/img/favicon-square.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-square.png" />
+  <link rel="apple-touch-icon" href="/img/favicon-square.png" />
   <!-- Styles -->
   <link rel="stylesheet" href="css/styles.css?v=42" />
 
@@ -351,7 +352,7 @@ src="https://www.facebook.com/tr?id=1593579461947002&ev=PageView&noscript=1"/>
   <!-- ============================================================
        SECCIÓN 6 — FORMULARIO DE SOLICITUD
        ============================================================ -->
-  <section class="formulario-section" id="formulario">
+  <section class="formulario-section" id="formulario-seccion">
     <div class="container">
       <div class="formulario-inner">
 
@@ -387,7 +388,7 @@ src="https://www.facebook.com/tr?id=1593579461947002&ev=PageView&noscript=1"/>
         </div>
 
         <!-- Formulario -->
-        <div class="form-wrapper fade-up" style="transition-delay: 0.15s">
+        <div class="form-wrapper fade-up" style="transition-delay: 0.15s" id="formulario">
           <h3 class="form-title">Solicita tu crédito</h3>
           <p class="form-sub">Completa los datos. Es gratis y sin compromiso.</p>
 
@@ -440,7 +441,7 @@ src="https://www.facebook.com/tr?id=1593579461947002&ev=PageView&noscript=1"/>
               </div>
               <span class="form-error" id="tipoClienteError"></span>
               <!-- Aviso empleado privado -->
-              <div class="aviso-privado" id="avisoPrivado1" role="alert" aria-live="polite">
+              <div class="aviso-privado" id="avisoPrivado1" role="alert" aria-live="polite" style="display: none;">
                 <div class="aviso-privado-icon">🚫</div>
                 <div class="aviso-privado-body">
                   <strong>Por el momento no trabajamos con empleados privados</strong>
@@ -533,7 +534,7 @@ src="https://www.facebook.com/tr?id=1593579461947002&ev=PageView&noscript=1"/>
   <!-- ============================================================
        SECCIÓN 6 — FORMULARIO DE SOLICITUD
        ============================================================ -->
-  <section class="formulario-section" id="formulario2">
+  <section class="formulario-section" id="formulario2-seccion">
     <div class="container">
       <div class="formulario-inner">
 
@@ -569,7 +570,7 @@ src="https://www.facebook.com/tr?id=1593579461947002&ev=PageView&noscript=1"/>
         </div>
 
         <!-- Formulario -->
-        <div class="form-wrapper fade-up" style="transition-delay: 0.15s">
+        <div class="form-wrapper fade-up" style="transition-delay: 0.15s" id="formulario2">
           <h3 class="form-title">Solicita tu evaluación gratuita</h3>
           <p class="form-sub">Completa los datos. Es gratis y sin compromiso.</p>
 
@@ -622,7 +623,7 @@ src="https://www.facebook.com/tr?id=1593579461947002&ev=PageView&noscript=1"/>
               </div>
               <span class="form-error" id="tipoClienteError2"></span>
               <!-- Aviso empleado privado -->
-              <div class="aviso-privado" id="avisoPrivado2" role="alert" aria-live="polite">
+              <div class="aviso-privado" id="avisoPrivado2" role="alert" aria-live="polite" style="display: none;">
                 <div class="aviso-privado-icon">🚫</div>
                 <div class="aviso-privado-body">
                   <strong>Por el momento no trabajamos con empleados privados</strong>
@@ -878,13 +879,23 @@ src="https://www.facebook.com/tr?id=1593579461947002&ev=PageView&noscript=1"/>
         const btn   = document.getElementById(submitId);
         if (!select || !aviso || !btn) return;
 
-        select.addEventListener('change', function () {
-          const esPrivado = this.value === 'empleado_privado';
-          aviso.classList.toggle('visible', esPrivado);
+        function updateAviso() {
+          const esPrivado = select.value === 'empleado_privado';
+          if (esPrivado) {
+            aviso.classList.add('visible');
+            aviso.style.display = 'flex';
+          } else {
+            aviso.classList.remove('visible');
+            aviso.style.display = 'none';
+          }
           btn.disabled = esPrivado;
           btn.style.opacity = esPrivado ? '0.5' : '';
           btn.style.cursor  = esPrivado ? 'not-allowed' : '';
-        });
+        }
+
+        select.addEventListener('change', updateAviso);
+        // Execute once to set initial state correctly
+        updateAviso();
       }
 
       setupAvisoPrivado('tipo_cliente',  'avisoPrivado1', 'btnSubmit');
